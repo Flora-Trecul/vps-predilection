@@ -57,7 +57,7 @@ services:
       retries: 5
 
   ingest:
-    image: ghcr.io/Flora-Trecul/ingest-app:develop
+    image: ghcr.io/flora-trecul/ingest-app:develop
     networks:
       - proxy
     depends_on:
@@ -70,7 +70,7 @@ services:
     restart: "no"
 
   fastapi:
-    image: ghcr.io/Flora-Trecul/fastapi-app:develop
+    image: ghcr.io/flora-trecul/fastapi-app:develop
     volumes:
       - ./saved_models:/app/saved_models
     networks:
@@ -89,7 +89,7 @@ services:
       - "traefik.http.services.fastapi.loadbalancer.server.port=8080"
 
   django:
-    image: ghcr.io/Flora-Trecul/django-app:develop
+    image: ghcr.io/flora-trecul/django-app:develop
     volumes:
       - django_data:/app/
     networks:
